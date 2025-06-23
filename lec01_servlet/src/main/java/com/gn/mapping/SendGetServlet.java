@@ -1,10 +1,10 @@
 package com.gn.mapping;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -52,27 +52,35 @@ public class SendGetServlet extends HttpServlet {
 		}
 		
 		// 1. 응답 형식 지정
-		response.setContentType("text/html; charset=UTF-8");
+//		response.setContentType("text/html; charset=UTF-8");
 		
 		// 2. 응답하고자 하는 사용자와의 연결통로 생성
-		PrintWriter out = response.getWriter();
+//		PrintWriter out = response.getWriter();
 		
 		// 3. HTML 구문 한줄씩 쌓기
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<meta charset='UTF-8'>");
-		out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
-		out.println("<title>회원가입 결과화면</title>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<h1>"+name+"님, 환영합니다</h1>");
-		out.println("<h2>앞으로도 자주 와주실꺼죠?</h2>");
-		out.println("<a href='/'>홈페이지로 이동</a>");
-		out.println("</body>");
-		out.println("</html>");
+//		out.println("<html>");
+//		out.println("<head>");
+//		out.println("<meta charset='UTF-8'>");
+//		out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
+//		out.println("<title>회원가입 결과화면</title>");
+//		out.println("</head>");
+//		out.println("<body>");
+//		out.println("<h1>"+name+"님, 환영합니다</h1>");
+//		out.println("<h2>앞으로도 자주 와주실꺼죠?</h2>");
+//		out.println("<a href='/'>홈페이지로 이동</a>");
+//		out.println("</body>");
+//		out.println("</html>");
 		
 		// 4. 쌓여있는 데이터 밀어내기
-		out.flush();
+//		out.flush();
+		
+		// jsp로 변경
+		// 1. JSP로 요청을 넘기는 역할 = 어느 JSP에 넘길지 지정
+		RequestDispatcher view = request.getRequestDispatcher("views/joinSuccess.jsp");
+		// 2. JSP에게 데이터를 넘겨주기
+		request.setAttribute("name",name);
+		// 3. 화면을 JSP에게 넘기고, 응답을 JSP에게 맡기기
+		view.forward(request, response);
 		
 	}
 
