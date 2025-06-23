@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+	<h1>회원가입</h1>
+	<form action="/joinMember" method="get">
+		<div>
+			<label for="user_name">이름 : </label>
+			<input id="user_name" type="text" name="user_name">
+		</div>
+		<div>
+	      <label>성별 : </label>
+	      <input type="radio" value="1" id="male" name="gender">
+	      <label for="male">남자</label>
+	      <input type="radio" value="2" id="female" name="gender">
+	      <label for="female">여자</label>
+		</div>
+		<div>
+	      <label for="age">나이 : </label>
+	      <input type="number" id="age" name="user_age">
+		</div>
+		<div>
+	      <label>취미 : </label>
+	      <input type="checkbox" name="hobby" id="base" value="1">
+	      <label for="base">야구</label>
+	      <input type="checkbox" name="hobby" id="basket" value="2">
+	      <label for="basket">농구</label>
+	      <input type="checkbox" name="hobby" id="soccer" value="3">
+	      <label for="soccer">축구</label>     
+		</div>
+		<div>
+		  <input type="submit" value="회원가입">
+		  <input type="reset" value="다시입력">
+		  <input type="button" value="이전으로">
+		</div>
+	</form>
+</body>
+</html>
