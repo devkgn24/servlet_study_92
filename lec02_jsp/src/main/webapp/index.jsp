@@ -23,6 +23,10 @@
 	<a href="views/include_element.jsp">
 		include 태그 연습
 	</a>
+	<h1>4. 도서 대출 하기</h1>
+	<a href="/bookReserve">
+		도서 대출
+	</a>
 </body>
 </html>
 
