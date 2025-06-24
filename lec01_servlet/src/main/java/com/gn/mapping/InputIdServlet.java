@@ -1,4 +1,4 @@
-package com.gn.mapping;
+2package com.gn.mapping;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
