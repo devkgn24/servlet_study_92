@@ -12,9 +12,13 @@
 		스크립팅 요소 연습
 	</a>
 	<h1>2. Directive Tag (page)</h1>
-	<a href="views/page_element.jsp">
+	<!-- <a href="views/page_element.jsp">
+		페이지 태그 연습
+	</a> -->
+	<a href="/pageView">
 		페이지 태그 연습
 	</a>
+	
 	<h1>3. Directive Tag(include)</h1>
 	<a href="views/include_element.jsp">
 		include 태그 연습
