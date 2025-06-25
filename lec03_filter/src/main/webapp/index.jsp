@@ -16,5 +16,9 @@
 		<textarea rows="3" cols="20" name="msg"></textarea>
 		<button>보내기</button>
 	</form>
+	<form action="/board/write" method="post">
+	    <input type="text" name="title" placeholder="제목 입력">
+	    <input type="submit" value="작성">
+	</form>
 </body>
 </html>
