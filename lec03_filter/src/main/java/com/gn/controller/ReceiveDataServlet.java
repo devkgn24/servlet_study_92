@@ -21,7 +21,8 @@ public class ReceiveDataServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("데이터 : "+request.getParameter("test_data"));
+		System.out.println("데이터 : "
+	+request.getParameter("test_data"));
 	}
 
 }

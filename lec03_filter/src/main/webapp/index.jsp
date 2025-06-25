@@ -12,5 +12,9 @@
 		<input type="text" name="test_data">
 		<input type="submit" value="데이터 보내기">
 	</form>
+	<form action="/receive/msg" method="post">
+		<textarea rows="3" cols="20" name="msg"></textarea>
+		<button>보내기</button>
+	</form>
 </body>
 </html>
