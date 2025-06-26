@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.gn.dto.Account" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,26 @@
 <title>쿠키, 세션</title>
 </head>
 <body>
+	<%
+		Account account = null;
+		if(session != null){
+			if(session.getAttribute("account") != null){
+				account = (Account)session.getAttribute("account");
+			}
+		}
+	%>
+	<% if(account == null){ %>
+		<form action="/login" method="post">
+			<label for="account_id">아이디 : </label>
+			<input type="text" name="account_id" id="account_id"><br>
+			<label for='account_pw'>비밀번호 : </label>
+			<input type="password" name="account_pw" id="account_pw">
+			<input type="submit" value="로그인">
+		</form>
+	<% } else{ %>
+		<p><%=account.getAccountName() %>님 환영합니다!<p>
+		<a href="/logout">로그아웃</a>
+	<%} %>
 	<h1>Cookie🍪</h1>
 	<ul>
 		<li>
