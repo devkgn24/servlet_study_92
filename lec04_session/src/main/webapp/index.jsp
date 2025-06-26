@@ -18,6 +18,9 @@
 		<li>
 			<a href="/deleteCookie">쿠키 삭제</a>
 		</li>
+		<li>
+			<a href="/practiceCookie">쿠키 연습하기</a>
+		</li>
 	</ul>
 	<h2>현재 쿠키 값 확인</h2>
 	<%
