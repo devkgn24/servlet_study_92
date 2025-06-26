@@ -22,12 +22,18 @@ public class GetTextAjaxServlet extends HttpServlet {
 		
 		// 1. HTML 형태로 응답
 		// (1) 어떤 형식으로 정보를 보내줄 것인가
-		response.setContentType("text/html; charset=utf-8");
+		// response.setContentType("text/html; charset=utf-8");
 		// (2) 연결 통로(스트림) 생성
-		PrintWriter out = response.getWriter();
+		// PrintWriter out = response.getWriter();
 		// (3) 통로로 정보 내보내기
+		// int leng = userId.length();
+		// out.println("<p>아이디 : "+userId+"("+leng+"글자)</p>");
+		
+		// 2. (순수)문자 형태로 응답
+		response.setContentType("text/plain; charset=utf-8");
+		PrintWriter out = response.getWriter();
 		int leng = userId.length();
-		out.println("<p>아이디 : "+userId+"("+leng+"글자)</p>");
+		out.println("순수 문자 아이디 : "+userId+"("+leng+")");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
