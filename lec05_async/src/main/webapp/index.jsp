@@ -63,6 +63,44 @@
 			});
 		});
 	</script>
+	<h1>성적 계산기</h1>
+
+	<label for="kor">국어 : </label>
+	<input type="number" id="kor"><br>
+	
+	<label for="eng">영어 : </label>
+	<input type="number" id="eng"><br>
+	
+	<label for="math">수학 : </label>
+	<input type="number" id="math"><br>
+	
+	<button id="btnPost">계산</button>
+	
+	<div id="resultArea"></div>
+	<script>
+		$(function(){
+			$("#btnPost").click(function(){
+				const kor = $("#kor").val();
+				const eng = $("#eng").val();
+				const math = $("#math").val();
+				
+				$.ajax({
+					url : "/scoreAjax",
+					type : "post",
+					data : {kor : kor,
+							eng : eng,
+							math : math},
+					success : function(result){
+						$("#resultArea").html('<p>'+result+"</p>");
+					},
+					error : function(){
+						alert("서버 요청 실패");
+					}
+				});
+			});
+		});
+	
+	</script>
 	
 	
 	
