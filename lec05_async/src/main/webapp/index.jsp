@@ -99,8 +99,39 @@
 				});
 			});
 		});
-	
 	</script>
+	<h1>JSON + AJAX</h1>
+	<input type="text" id="searchName">
+	<button type="button" id="json_get_btn">조회</button>
+	<div id="json_get_div"></div>
+	<script>
+		$(document).ready(function(){
+			$("#json_get_btn").click(function(){
+				// 1. 사용자 이름 정보 가져오기
+				const keyword = $("#searchName").val();
+				// 2. get방식(비동기) 요청
+				
+				$.ajax({
+					url: "/searchAccount?name="+keyword,
+					type : "get",
+					dataType : "json",
+					success : function(data){
+						// 4. 화면에 목록 형태로 출력
+						const no = data.no;
+						const name = data.name;
+						
+						$('#json_get_div').append('<p>'+no+"번 : "+name+"</p>");
+					}
+				});
+				
+			});
+		});
+	</script>
+	
+	
+	
+	
+	
 	
 	
 	
