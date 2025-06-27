@@ -117,10 +117,18 @@
 					dataType : "json",
 					success : function(data){
 						// 4. 화면에 목록 형태로 출력
-						const no = data.no;
+/* 						const no = data.no;
 						const name = data.name;
 						
-						$('#json_get_div').append('<p>'+no+"번 : "+name+"</p>");
+						$('#json_get_div').append('<p>'+no+"번 : "+name+"</p>"); */
+						
+						if(data.arr.length != 0){
+							for(let i = 0 ; i < data.arr.length ; i++){
+								const account = data.arr[i];
+								$("#json_get_div").append('<p>'+account.no+"번 : "+account.name+"</p>");
+							}
+							
+						}
 					}
 				});
 				
