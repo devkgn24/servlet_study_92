@@ -121,7 +121,7 @@
 						const name = data.name;
 						
 						$('#json_get_div').append('<p>'+no+"번 : "+name+"</p>"); */
-						
+						e.preventDefault();
 						if(data.arr.length != 0){
 							for(let i = 0 ; i < data.arr.length ; i++){
 								const account = data.arr[i];
@@ -135,9 +135,42 @@
 			});
 		});
 	</script>
-	
-	
-	
+	<h1>카테고리별 상품 조회</h1>
+	<select id="categorySelect">
+		<option value="1">전자제품</option>
+		<option value="2">생활용품</option>
+		<option value="3">패션</option>
+	</select>
+	<button type="button" id="searchBtn">조회</button>
+	<div id="productListArea"></div>
+	<script>
+		$(function(){
+			$("#categorySelect").change(function(){
+				// 1. 선택된 카테고리 정보 가져오기
+				const categoryCode = $(this).val();
+				console.log(categoryCode);
+				// 2. ajax 통신을 통해 목록 조회
+				$.ajax({
+					url : "/searchProduct",
+					type : "post",
+					data : {code : categoryCode},
+					dataType : 'json',
+					success : function(data){
+						// 3. 화면에 출력하기
+						$("#productListArea").empty();s
+						if(data.arr.length === 0){
+							$("#productListArea").html("해당 카테고리의 상품이 없습니다.");
+						} else{
+							for(let i = 0 ; i < data.arr.length ; i++){
+								const product = data.arr[i];
+								$("#productListArea").append("<p>"+product.name+"은 "+product.price+"원 입니다.</p>");
+							}
+						}
+					}
+				})
+			});
+		});
+	</script>
 	
 	
 	
