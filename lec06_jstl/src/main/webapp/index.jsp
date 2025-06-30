@@ -153,7 +153,11 @@
 			=> num3이 10보다 작습니까?</p>
 		</c:otherwise>
 	</c:choose>
-	
+	<h1>6. 사이트 테마 설정</h1>
+	<form method="post" action="/setTheme">
+	    <button type="submit" name="theme" value="dark">다크모드</button>
+	    <button type="submit" name="theme" value="light">라이트모드</button>
+	</form>
 	<h2>(5) 반복문 : forEach</h2>
 	<!-- 기본 for문 처럼 사용하기 -->
 	<c:forEach var="i" begin="1" end="10" step="2">
@@ -176,7 +180,10 @@
 			첫번째? : ${vs.first }, 마지막? : ${vs.last }
 		</p>
 	</c:forEach>
-	
+	<h2>(6) 경로 : 기존 vs jstl</h2>
+	<script src="<%=request.getContextPath() %>/resources/jquery-3.7.1.js">
+	</script>
+	<a href="<%=request.getContextPath() %>/boardList">게시판</a>
 	
 	
 	
