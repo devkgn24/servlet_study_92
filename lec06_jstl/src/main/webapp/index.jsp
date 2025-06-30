@@ -154,6 +154,32 @@
 		</c:otherwise>
 	</c:choose>
 	
+	<h2>(5) 반복문 : forEach</h2>
+	<!-- 기본 for문 처럼 사용하기 -->
+	<c:forEach var="i" begin="1" end="10" step="2">
+		<p>반복 숫자 : ${i }</p>
+	</c:forEach>
+	<!-- 향상된 for문 처럼 사용하기 -->
+	<%
+		String[] colors = {"red","green","blue"};
+		request.setAttribute("colors",colors);
+	%>
+	<ul>
+		<c:forEach var="color" items="${colors }">
+			<li style="color:${color }">${color }</li>
+		</c:forEach>
+	</ul>
+	<!-- varStatus 속성 -->
+	<c:forEach var="num" begin="0" end="5" varStatus="vs">
+		<p>
+			숫자 : ${num }, 인덱스 : ${vs.index }, 카운트 : ${vs.count },
+			첫번째? : ${vs.first }, 마지막? : ${vs.last }
+		</p>
+	</c:forEach>
+	
+	
+	
+	
 	
 	
 	
