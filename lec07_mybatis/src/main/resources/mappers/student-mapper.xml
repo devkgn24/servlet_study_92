@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gn.mapper.StudentMapper">
+	<select id="selectAll" resultType="com.gn.dto.Student">
+		SELECT student_no AS studentNo,
+			student_name AS studentName,
+			student_age AS studentAge
+		FROM student
+	</select>
+</mapper>
