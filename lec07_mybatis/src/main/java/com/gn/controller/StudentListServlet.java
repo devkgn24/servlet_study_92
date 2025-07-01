@@ -28,6 +28,8 @@ public class StudentListServlet extends HttpServlet {
 //		5. Mapper에 있는 쿼리 실행 
 //		=> 학생 정보 목록 조회
 //		6. /views/studentList.jsp로 보내기
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("/views/studentList.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
