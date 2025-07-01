@@ -29,4 +29,8 @@ public class StudentService {
 		return dao.insert(param);
 	}
 	
+	// 수정 -> 번호,이름, 나이 전달 받아올꺼에요
+	// DAO한테 부탁할때는 Student 바구니에 담아서 전달할꺼에요.
+	// 결과는 int로 반환받고 싶어요~
+	
 }

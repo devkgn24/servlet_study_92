@@ -24,6 +24,12 @@
 		VALUES (#{studentName}, #{studentAge})
 	</insert>
 	
+	<update id="" parameterType="">
+		UPDATE student
+		SET student_name = ? ,
+			student_age = ? 
+		WHERE student_no = ?
+	</update>
 	
 	
 </mapper>

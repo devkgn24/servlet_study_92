@@ -29,4 +29,15 @@ public class StudentDao {
 		session.close();
 		return result;
 	}
+	
+	// Service한테 Student를 전달받았어요.
+	// 전달받은 정보를 가지고 update 하고 싶어요.
+	
+	
+	
+	
+	
+	
+	
+	
 }
