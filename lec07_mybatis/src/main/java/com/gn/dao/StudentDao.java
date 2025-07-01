@@ -22,4 +22,11 @@ public class StudentDao {
 		session.close();
 		return student;
 	}
+	
+	public int insert(Student param){
+		SqlSession session = SessionTemplate.getSqlSession(true);
+		int result = session.insert("com.gn.mapper.StudentMapper.insert",param);
+		session.close();
+		return result;
+	}
 }

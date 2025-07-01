@@ -26,5 +26,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<a href="<c:url value='/student/insert'/>">학생 등록</a>
 </body>
 </html>

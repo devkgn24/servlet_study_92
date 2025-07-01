@@ -8,4 +8,6 @@ public interface StudentMapper {
 	List<Student> selectAll();
 	
 	Student selectOne(int studentNo);
+	
+	int insert(Student param);
 }
