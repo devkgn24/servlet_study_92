@@ -14,4 +14,9 @@ public class StudentService {
 		return list;
 	}
 	
+	public Student getStudentDetail(int studentNo) {
+		Student student = dao.selectOne(studentNo);
+		return student;
+	}
+	
 }
