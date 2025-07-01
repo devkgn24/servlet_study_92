@@ -24,11 +24,11 @@
 		VALUES (#{studentName}, #{studentAge})
 	</insert>
 	
-	<update id="" parameterType="">
+	<update id="updateStudent" parameterType="com.gn.dto.Student">
 		UPDATE student
-		SET student_name = ? ,
-			student_age = ? 
-		WHERE student_no = ?
+		SET student_name = #{studentName} ,
+			student_age = #{studentAge} 
+		WHERE student_no = #{studentNo}
 	</update>
 	
 	

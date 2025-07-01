@@ -14,4 +14,5 @@ public interface StudentMapper {
 	// 메소드명 : updateStudent
 	// 반환형 : int
 	// 매개변수 : Student student
+	int updateStudent(Student student);
 }

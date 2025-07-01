@@ -32,6 +32,12 @@ public class StudentDao {
 	
 	// Service한테 Student를 전달받았어요.
 	// 전달받은 정보를 가지고 update 하고 싶어요.
+	public int updateStudent(Student param) {
+		SqlSession session = SessionTemplate.getSqlSession(true);
+		int result = session.update("com.gn.mapper.StudentMapper.updateStudent",param);
+		session.close();
+		return result;
+	}
 	
 	
 	

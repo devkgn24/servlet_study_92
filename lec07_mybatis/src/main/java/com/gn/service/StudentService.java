@@ -33,4 +33,10 @@ public class StudentService {
 	// DAO한테 부탁할때는 Student 바구니에 담아서 전달할꺼에요.
 	// 결과는 int로 반환받고 싶어요~
 	
+	public int updateStudent(int no, String name, int age) {
+		Student param = new Student(no,name,age);
+		int result = dao.updateStudent(param);
+		return result;
+	}
+	
 }
