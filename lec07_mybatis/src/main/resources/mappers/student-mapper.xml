@@ -31,5 +31,10 @@
 		WHERE student_no = #{studentNo}
 	</update>
 	
+	<delete id="deleteStudent" parameterType="_int">
+		DELETE FROM student
+		WHERE student_no = #{no}
+	</delete>
+	
 	
 </mapper>

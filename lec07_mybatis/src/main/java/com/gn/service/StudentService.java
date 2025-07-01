@@ -39,4 +39,9 @@ public class StudentService {
 		return result;
 	}
 	
+	public int deleteStudent(int no) {
+		int result = dao.deleteStudent(no);
+		return result;
+	}
+	
 }

@@ -14,5 +14,8 @@
 	<a href="<c:url value='/student/update?no=${student.studentNo }'/>">
 		수정
 	</a>
+	<a href="<c:url value='/student/delete?no=${student.studentNo }'/>">
+		삭제
+	</a>
 </body>
 </html>
