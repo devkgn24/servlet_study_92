@@ -17,5 +17,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	<mappers>
 		<mapper resource="/mappers/student-mapper.xml"/>
+		<mapper resource="/mappers/product-mapper.xml"/>
 	</mappers>
 </configuration>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gn.mapper.ProductMapper">
+	<resultMap id="productResultMap" type="com.gn.dto.Product">
+		<result property="productNo" column="product_no"/>
+        <result property="productName" column="product_name" />
+        <result property="productPrice" column="product_price" />
+        <result property="productCategory" column="product_category" />
+	</resultMap>
+
+	<select id="searchProduct" parameterType="com.gn.dto.Product"
+	resultMap="productResultMap">
+		SELECT * FROM product
+		<where>
+			<if test='productName != null and productName != ""'>
+				AND product_name LIKE CONCAT('%',#{productName},'%')
+			</if>
+			<if test='productCategory != null and productCategory != 0'>
+				AND product_category = #{productCategory}
+			</if>
+		</where>
+		<choose>
+			<when test="sort == 1">
+				ORDER BY product_price ASC
+			</when>
+			<when test="sort == 2">
+				ORDER BY product_price DESC
+			</when>
+			<otherwise>
+				ORDER BY product_no ASC
+			</otherwise>
+		</choose>
+	</select>
+</mapper>
