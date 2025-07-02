@@ -49,6 +49,12 @@ public class MemberCreateServlet extends HttpServlet {
 		obj.put("res_code", "500");
 		obj.put("res_msg", "회원가입 중 오류가 발생했습니다");
 		
+		int result = service.insertMember(id,pw);
+		if(result > 0) {
+			obj.put("res_code", "200");
+			obj.put("res_msg", "회원가입 성공!!");
+		}
+		
 		response.setContentType("application/json; charset=utf-8");
 		response.getWriter().print(obj);
 		
