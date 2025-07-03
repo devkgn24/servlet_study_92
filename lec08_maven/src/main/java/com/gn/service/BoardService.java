@@ -19,10 +19,10 @@ public class BoardService {
 	// 게시글 + 파일 트랜젝션 처리
 	public int createBoardWithAttach(Board board, Attach attach) {
 		SqlSession session = SqlSessionTemplate.getSqlSession(false);
-		
+		int result = 0;
 		try {
 			// 1. 게시글 등록
-			int result = boardDao.insertBoard(session,board);
+			result = boardDao.insertBoard(session,board);
 			
 			// 2. 파일 정보 등록
 			if(attach != null && result > 0) {
@@ -42,6 +42,7 @@ public class BoardService {
 		}finally {
 			session.close();
 		}
+		return result;
 	}
 	
 	

@@ -17,4 +17,26 @@
 			,DATE_FORMAT(mod_date, '%Y-%m-%d') AS mod_date
 		FROM board
 	</select>
+	
+	<insert id="insertBoard" parameterType="com.gn.dto.Board"
+	useGeneratedKeys="true" keyProperty="boardNo">
+		INSERT INTO board(board_title ,board_content ,board_writer)
+		VALUES (#{boardTitle} ,#{boardContent} ,#{boardWriter})
+	</insert>
+	
+	<insert id="insertAttach" parameterType="com.gn.dto.Attach">
+		INSERT INTO attach(board_no ,ori_name ,re_name)
+		VALUES (#{boardNo}, #{oriName} ,#{reName})
+	</insert>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </mapper>

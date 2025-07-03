@@ -42,7 +42,10 @@
 				cache : false,
 				dataType : "json",
 				success : function(data){
-					
+					alert(data.res_msg);
+					if(data.res_code == 200){
+						location.href = "<%=request.getContextPath() %>/boardList";
+					}
 				}
 			})
 		})

@@ -3,6 +3,8 @@ package com.gn.controller;
 import java.io.File;
 import java.io.IOException;
 
+import org.json.simple.JSONObject;
+
 import com.gn.dto.Attach;
 import com.gn.dto.Board;
 import com.gn.service.AttachService;
@@ -53,9 +55,19 @@ public class BoardWriteServlet extends HttpServlet {
 		// 3. 게시글과 파일 정보 데이터베이스에 추가
 		int result = boardService.createBoardWithAttach(board,attach);
 		
+		JSONObject obj = new JSONObject();
+		
+		if(result > 0) {
+			obj.put("res_code", "200");
+			obj.put("res_msg", "게시글 등록이 성공적으로 진행되었습니다.");
+		} else {
+			obj.put("res_code", "500");
+			obj.put("res_msg", "게시글 등록중 오류가 발생했습니다.");
+		}
 		
 		
-		
+		response.setContentType("application/json; charset=utf-8");
+		response.getWriter().print(obj);
 		
 		
 		
