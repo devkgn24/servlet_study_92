@@ -41,7 +41,7 @@
 				processType : false,
 				cache : false,
 				dataType : "json",
-				succes : function(data){
+				success : function(data){
 					
 				}
 			})

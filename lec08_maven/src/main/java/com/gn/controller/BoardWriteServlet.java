@@ -1,8 +1,12 @@
 package com.gn.controller;
 
+import java.io.File;
 import java.io.IOException;
 
+import com.gn.dto.Attach;
 import com.gn.dto.Board;
+import com.gn.service.AttachService;
+import com.gn.service.BoardService;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -19,7 +23,8 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/boardWrite")
 public class BoardWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private BoardService boardService = new BoardService();   
+	
     public BoardWriteServlet() {
         super();
     }
@@ -41,6 +46,22 @@ public class BoardWriteServlet extends HttpServlet {
 		board.setBoardWriter(boardWriter);
 		
 		// 2. 파일 정보 추출
+		File uploadDir = AttachService.getUploadDirectory();
+		Attach attach = AttachService.handleUploadFile(request, uploadDir);
+		
+		
+		// 3. 게시글과 파일 정보 데이터베이스에 추가
+		int result = boardService.createBoardWithAttach(board,attach);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
