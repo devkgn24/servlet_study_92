@@ -38,7 +38,7 @@
 				data : formData,
 				enctype : "multipart/form-data",
 				contentType : false,
-				processType : false,
+				processData : false,
 				cache : false,
 				dataType : "json",
 				success : function(data){
