@@ -2,5 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gn.mapper.BoardMapper">
-
+  <resultMap id="boardResultMap" type="com.gn.dto.Board">
+      <result property="boardNo" column="board_no" />
+      <result property="boardTitle" column="board_title" />
+      <result property="boardContent" column="board_content" />
+      <result property="boardWriter" column="board_writer" />
+      <result property="regDate" column="reg_date" />
+      <result property="modDate" column="mod_date" />
+  </resultMap>
+  
+	<select id="selectBoardList" resultMap="boardResultMap">
+		SELECT board_no ,board_title ,board_content ,board_writer
+			,DATE_FORMAT(reg_date, '%Y-%m-%d') AS reg_date
+			,DATE_FORMAT(mod_date, '%Y-%m-%d') AS mod_date
+		FROM board
+	</select>
 </mapper>
