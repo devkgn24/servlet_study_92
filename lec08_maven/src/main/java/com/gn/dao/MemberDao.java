@@ -12,4 +12,11 @@ public class MemberDao {
 		session.close();
 		return result;
 	}
+
+	public Member selectMember(Member param) {
+		SqlSession session = SqlSessionTemplate.getSqlSession(true);
+		Member result = session.selectOne("com.gn.mapper.MemberMapper.selectMember",param);
+		session.close();
+		return result;
+	}
 }
