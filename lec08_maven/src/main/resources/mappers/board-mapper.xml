@@ -12,6 +12,34 @@
       <result property="memberId" column="member_id"/>
   </resultMap>
   
+  <resultMap id="attachResultMap" type="com.gn.dto.Attach">
+  	<result property="attachNo" column="attach_no"/>
+  	<result property="boardNo" column="board_no"/>
+  	<result property="oriName" column="ori_name"/>
+  	<result property="reName" column="re_name"/>
+  </resultMap>
+  
+  <select id="selectBoardOne" parameterType="_int" resultMap="boardResultMap">
+  	SELECT B.board_no 
+  		,B.board_title
+  		,M.member_id
+  		,B.board_content
+  		,DATE_FORMAT(B.reg_date, '%Y-%m-%d') AS reg_date
+  	FROM board B
+  	JOIN member M ON B.board_writer = M.member_no
+  	<where>
+  		B.board_no = #{boardNo}
+  	</where>
+  </select>
+  
+  <select id="selectAttachByBoardNo" parameterType="_int" resultMap="attachResultMap">
+  	SELECT * 
+  	FROM attach
+  	<where>
+  		board_no = #{boardNo}
+  	</where>
+  </select>
+  
 	<select id="selectBoardList" resultMap="boardResultMap"
 		parameterType="com.gn.dto.Board">
 		SELECT B.board_no 
