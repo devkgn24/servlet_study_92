@@ -10,11 +10,18 @@ import com.gn.dto.Board;
 
 public class BoardDao {
 	
-	public List<Board> selectBoardList(){
+	public List<Board> selectBoardList(Board param){
 		SqlSession session = SqlSessionTemplate.getSqlSession(true);
-		List<Board> list = session.selectList("com.gn.mapper.BoardMapper.selectBoardList");
+		List<Board> list = session.selectList("com.gn.mapper.BoardMapper.selectBoardList",param);
 		session.close();
 		return list;
+	}
+	
+	public int selectBoardCount() {
+		SqlSession session = SqlSessionTemplate.getSqlSession(true);
+		int count = session.selectOne("com.gn.mapper.BoardMapper.selectBoardCount");
+		session.close();
+		return count;
 	}
 	
 	public int insertBoard(SqlSession session, Board board) {

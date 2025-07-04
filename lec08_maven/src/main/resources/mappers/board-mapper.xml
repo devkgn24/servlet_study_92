@@ -12,7 +12,8 @@
       <result property="memberId" column="member_id"/>
   </resultMap>
   
-	<select id="selectBoardList" resultMap="boardResultMap">
+	<select id="selectBoardList" resultMap="boardResultMap"
+		parameterType="com.gn.dto.Board">
 		SELECT B.board_no 
 			,B.board_title 
 			,B.board_content 
@@ -22,6 +23,12 @@
 			,M.member_id
 		FROM board B
 		JOIN member M ON B.board_writer = M.member_no
+		LIMIT #{limitPageNo},#{numPerPage}
+	</select>
+	
+	<select id="selectBoardCount" resultType="_int">
+		SELECT COUNT(*) 
+		FROM board
 	</select>
 	
 	<insert id="insertBoard" parameterType="com.gn.dto.Board"

@@ -12,8 +12,12 @@ import com.gn.dto.Board;
 public class BoardService {
 	private BoardDao boardDao = new BoardDao();
 	
-	public List<Board> selectBoardList(){
-		return boardDao.selectBoardList();
+	public List<Board> selectBoardList(Board param){
+		return boardDao.selectBoardList(param);
+	}
+	
+	public int selectBoardCount() {
+		return boardDao.selectBoardCount();
 	}
 	
 	// 게시글 + 파일 트랜젝션 처리
