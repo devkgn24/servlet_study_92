@@ -11,4 +11,6 @@ public class Board {
 	
 	private String regDate;
 	private String modDate;
+	
+	private String memberId;
 }

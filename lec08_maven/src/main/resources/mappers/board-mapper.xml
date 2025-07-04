@@ -9,13 +9,19 @@
       <result property="boardWriter" column="board_writer" />
       <result property="regDate" column="reg_date" />
       <result property="modDate" column="mod_date" />
+      <result property="memberId" column="member_id"/>
   </resultMap>
   
 	<select id="selectBoardList" resultMap="boardResultMap">
-		SELECT board_no ,board_title ,board_content ,board_writer
-			,DATE_FORMAT(reg_date, '%Y-%m-%d') AS reg_date
-			,DATE_FORMAT(mod_date, '%Y-%m-%d') AS mod_date
-		FROM board
+		SELECT B.board_no 
+			,B.board_title 
+			,B.board_content 
+			,B.board_writer
+			,DATE_FORMAT(B.reg_date, '%Y-%m-%d') AS reg_date
+			,DATE_FORMAT(B.mod_date, '%Y-%m-%d') AS mod_date
+			,M.member_id
+		FROM board B
+		JOIN member M ON B.board_writer = M.member_no
 	</select>
 	
 	<insert id="insertBoard" parameterType="com.gn.dto.Board"

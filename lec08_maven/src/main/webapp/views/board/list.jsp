@@ -25,7 +25,7 @@
 				<tr>
 					<td>${b.boardNo }</td>
 					<td>${b.boardTitle }</td>
-					<td>${b.boardWriter }</td>
+					<td>${b.memberId }</td>
 					<td>${b.regDate }</td>
 				</tr>
 			</c:forEach>
