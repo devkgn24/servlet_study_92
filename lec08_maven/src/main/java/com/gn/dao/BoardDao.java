@@ -17,9 +17,9 @@ public class BoardDao {
 		return list;
 	}
 	
-	public int selectBoardCount() {
+	public int selectBoardCount(Board param) {
 		SqlSession session = SqlSessionTemplate.getSqlSession(true);
-		int count = session.selectOne("com.gn.mapper.BoardMapper.selectBoardCount");
+		int count = session.selectOne("com.gn.mapper.BoardMapper.selectBoardCount",param);
 		session.close();
 		return count;
 	}

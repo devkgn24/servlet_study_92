@@ -16,8 +16,8 @@ public class BoardService {
 		return boardDao.selectBoardList(param);
 	}
 	
-	public int selectBoardCount() {
-		return boardDao.selectBoardCount();
+	public int selectBoardCount(Board param) {
+		return boardDao.selectBoardCount(param);
 	}
 	
 	// 게시글 + 파일 트랜젝션 처리

@@ -44,8 +44,12 @@ public class BoardListServlet extends HttpServlet {
 		}
 		param.setNowPage(nowPage);
 		
+		// 검색어 셋팅
+		String keyword = request.getParameter("keyword");
+		param.setKeyword(keyword);
+		
 		// 전체 게시글 개수 조회
-		int totalData = service.selectBoardCount();
+		int totalData = service.selectBoardCount(param);
 		param.setTotalData(totalData);
 		
 		
